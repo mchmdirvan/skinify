@@ -1,74 +1,79 @@
 # Skinify
 
-[Skinify](https://skinify.mchmdirvan.com) online store for mobile phone skin products.
+[Skinify](https://skinify.mchmdirvan.com) - Online store for premium mobile phone skin products.
 
-## Links
+## 🔗 Links
 
-- Frontend Web: <https://skinify.mchmdirvan.com>
+**Links:**
+
+- Frontend: <https://skinify.mchmdirvan.com>
 - Backend API: <https://skinify-api.mchmdirvan.com>
 
-Repositories:
+**Repositories:**
 
-- General: <https://github.com/mchmdirvan/skinify>
+- Main: <https://github.com/mchmdirvan/skinify>
 - Backend API: <https://github.com/mchmdirvan/skinify-api>
 - Frontend Web: <https://github.com/mchmdirvan/skinify-web>
 
-Inspirations:
+**Inspiration:**
 
 - <https://exacoat.com>
 
-## Features
+## ✨ Features
 
-- Home page
-  - Hero section
-  - Products catalogue
-  - Example: <https://exacoat.com>
-- Product page
-  - Image
-  - Name
-  - Brand
-  - Price
-  - Add to cart form: quantity input & add to cart button
-- Shopping cart page
-  - Product items to buy
-    - Image, name, price, quantity, total (price x quantity)
-    - Remove item
-  - Link: continue shopping, go to products catalogue
-  - Link: checkout
-- Checkout page
-  - Order summary
-    - Product items to buy
-    - Grand total of all product items to buy
-- Place order / transaction is being processed
+### Core Pages
 
-## UI Designs
+- **Home Page**
+  - Hero section with featured products
+  - Product catalogue with search/filter
+  - Brand showcase
+- **Product Details**
+  - High-quality product images
+  - Product specifications (name, brand, price)
+  - Add to cart functionality with quantity selector
+- **Shopping Cart**
+  - Item management (view, update quantity, remove)
+  - Price calculations and totals
+  - Continue shopping or proceed to checkout
+- **Checkout**
+  - Order summary with itemized list
+  - Grand total calculation
+  - Order processing workflow
 
-- Figma:
+## 🎨 UI Designs
+
+**Figma Design:**
 
 ### Home Page
 
-<img alt="Home Page" src="./designs/home.jpg" width="400" />
+<img alt="Home Page Design" src="./designs/home.jpg" width="400" />
 
-## Entity Relationship Diagram (ERD)
+## 📊 Database Schema
 
-![ERD](./diagrams/erd.svg)
+![Entity Relationship Diagram](./diagrams/erd.svg)
 
-## REST API Endpoints
+## 🚀 API Documentation
 
-- Production: `https://skinify.mchmdirvan.com`
-- Local: `http://localhost:3000`
+**Base URLs:**
 
-| Endpoint         | HTTP     | Description               |
-| ---------------- | -------- | ------------------------- |
-| `/products`      | `GET`    | Get all products          |
-| `/products/:id`  | `GET`    | Get product by id         |
-| `/products/seed` | `POST`   | Seed all initial products |
-| `/products`      | `POST`   | Add new product           |
-| `/products`      | `DELETE` | Delete all products       |
-| `/products/:id`  | `DELETE` | Delete product by id      |
-| `/products/:id`  | `PUT`    | Update product by id      |
+- Production: `https://skinify-api.mchmdirvan.com`
+- Development: `http://localhost:3000`
 
-### Product
+### Endpoints
+
+| Endpoint         | Method   | Description           |
+| ---------------- | -------- | --------------------- |
+| `/products`      | `GET`    | Get all products      |
+| `/products/:id`  | `GET`    | Get product by id     |
+| `/products/seed` | `POST`   | Seed initial products |
+| `/products`      | `POST`   | Create new product    |
+| `/products/:id`  | `PUT`    | Update product by id  |
+| `/products/:id`  | `DELETE` | Delete product by id  |
+| `/products`      | `DELETE` | Delete all products   |
+
+### Data Models
+
+**Product Schema:**
 
 ```json
 {
@@ -80,15 +85,7 @@ Inspirations:
 }
 ```
 
-### Add New Product
-
-````json
-{
-  "name": "iPhone 15 Matte Black",
-  "price": 120000,
-  "brand": "Apple"
-}
-Request Body:
+**Create Product Request:**
 
 ```json
 {
@@ -96,9 +93,9 @@ Request Body:
   "price": 120000,
   "brand": "Apple"
 }
-````
+```
 
-Response Body:
+**Create Product Response:**
 
 ```json
 {
@@ -109,3 +106,10 @@ Response Body:
   "brand": "Apple"
 }
 ```
+
+## 🛠️ Tech Stack
+
+- **Frontend:** [Add your frontend technology]
+- **Backend:** [Add your backend technology]
+- **Database:** [Add your database]
+- **Deployment:** [Add deployment platform]
