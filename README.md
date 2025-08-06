@@ -19,6 +19,29 @@
 
 - <https://exacoat.com>
 
+## 🛠️ Architecture & Tech Stack
+
+### Client = Presentation Layer (UI)
+
+- HTML
+- CSS
+  - Tailwind CSS
+  - shadcn/ui
+- JavaScript
+- TypeScript
+- React
+- React Router
+- Docker
+
+### Server = Application Layer (Business Logic)
+
+- JavaScript
+- TypeScript
+- Hono
+- OpenAPI
+- Zod
+- Docker
+
 ## ✨ Features
 
 ### Core Pages
@@ -50,26 +73,23 @@
 
 ## 📊 Database Schema
 
-![Entity Relationship Diagram](./diagrams/erd.svg)
+![Entity Relationship Diagram](/assets/erd.png)
 
 ## 🚀 API Documentation
-
-**Base URLs:**
 
 - Production: `https://skinify-api.mchmdirvan.com`
 - Development: `http://localhost:3000`
 
-### Endpoints
+### REST API Endpoints
 
-| Endpoint         | Method   | Description           |
-| ---------------- | -------- | --------------------- |
-| `/products`      | `GET`    | Get all products      |
-| `/products/:id`  | `GET`    | Get product by id     |
-| `/products/seed` | `POST`   | Seed initial products |
-| `/products`      | `POST`   | Create new product    |
-| `/products/:id`  | `PUT`    | Update product by id  |
-| `/products/:id`  | `DELETE` | Delete product by id  |
-| `/products`      | `DELETE` | Delete all products   |
+| Endpoint        | Method   | Description          |
+| --------------- | -------- | -------------------- |
+| `/products`     | `GET`    | Get all products     |
+| `/products/:id` | `GET`    | Get product by id    |
+| `/products`     | `POST`   | Create new product   |
+| `/products/:id` | `PUT`    | Update product by id |
+| `/products/:id` | `DELETE` | Delete product by id |
+| `/products`     | `DELETE` | Delete all products  |
 
 ### Data Models
 
@@ -80,8 +100,14 @@
   "id": "uuid",
   "slug": "iphone-15-matte-black",
   "name": "iPhone 15 Matte Black",
+  "sku": "SKINIFY-IP16P-MTBK-1",
+  "brand": "Apple",
+  "description": "Skin premium untuk iPhone 15 dengan finishing Matte Black yang elegan. Melindungi dari goresan tanpa menambah ketebalan.",
+  "imageUrl": "https://placehold.co/600x600/222/FFF/png?text=Matte+Black",
   "price": 120000,
-  "brand": "Apple"
+  "stockQuantity": 100,
+  "createdAt": "2023-10-01T12:00:00Z",
+  "updatedAt": "2023-10-01T12:00:00Z"
 }
 ```
 
@@ -90,8 +116,12 @@
 ```json
 {
   "name": "iPhone 15 Matte Black",
+  "sku": "SKINIFY-IP16P-MTBK-1",
+  "brand": "Apple",
+  "description": "Skin premium untuk iPhone 15 dengan finishing Matte Black yang elegan. Melindungi dari goresan tanpa menambah ketebalan.",
+  "imageUrl": "https://placehold.co/600x600/222/FFF/png?text=Matte+Black",
   "price": 120000,
-  "brand": "Apple"
+  "stockQuantity": 100
 }
 ```
 
@@ -99,11 +129,17 @@
 
 ```json
 {
-  "id": "abc123",
+  "id": "uuid",
   "slug": "iphone-15-matte-black",
   "name": "iPhone 15 Matte Black",
+  "sku": "SKINIFY-IP16P-MTBK-1",
+  "brand": "Apple",
+  "description": "Skin premium untuk iPhone 15 dengan finishing Matte Black yang elegan. Melindungi dari goresan tanpa menambah ketebalan.",
+  "imageUrl": "https://placehold.co/600x600/222/FFF/png?text=Matte+Black",
   "price": 120000,
-  "brand": "Apple"
+  "stockQuantity": 100,
+  "createdAt": "2023-10-01T12:00:00Z",
+  "updatedAt": "2023-10-01T12:00:00Z"
 }
 ```
 
