@@ -6,8 +6,8 @@
 
 **Links:**
 
-- Frontend: <https://skinify.mchmdirvan.com>
-- Backend API: <https://skinify-api.mchmdirvan.com>
+- Frontend: <https://skinifyy.vercel.app>
+- Backend API: <https://skinify-api.onrender.com>
 
 **Repositories:**
 
@@ -21,7 +21,7 @@
 
 ## 🛠️ Architecture & Tech Stack
 
-### Client = Presentation Layer (UI)
+### Client | Presentation Layer (UI)
 
 - HTML
 - CSS
@@ -33,13 +33,19 @@
 - React Router
 - Docker
 
-### Server = Application Layer (Business Logic)
+### Server | Application Layer (Business Logic)
 
 - JavaScript
 - TypeScript
 - Hono
 - OpenAPI
 - Zod
+- Docker
+
+### Data Access Layer (Database)
+
+- Prisma
+- PostgreSQL
 - Docker
 
 ## ✨ Features
@@ -89,7 +95,6 @@
 | `/products`     | `POST`   | Create new product   |
 | `/products/:id` | `PUT`    | Update product by id |
 | `/products/:id` | `DELETE` | Delete product by id |
-| `/products`     | `DELETE` | Delete all products  |
 
 ### Data Models
 
@@ -142,10 +147,3 @@
   "updatedAt": "2023-10-01T12:00:00Z"
 }
 ```
-
-## 🛠️ Tech Stack
-
-- **Frontend:** [Add your frontend technology]
-- **Backend:** [Add your backend technology]
-- **Database:** [Add your database]
-- **Deployment:** [Add deployment platform]
