@@ -1,13 +1,17 @@
-# Skinify
+# Skinify Web
 
-[Skinify](https://skinify.mchmdirvan.com) - Online store for premium mobile phone skin products.
+![header](public/header.png)
+
+> 📇 **Skinify** - A web application that allows users to customize their phone's or gadget's appearance.
+
+Skinify is an application designed to help users personalize their devices with various skins and themes. Whether you want to give your phone a fresh look or match your gadget to your style, Skinify has got you covered.
 
 ## 🔗 Links
 
 **Links:**
 
-- Frontend: <https://skinifyy.vercel.app>
-- Backend API: <https://skinify-api.onrender.com>
+- Frontend: <https://skinify.mchmdirvan.com>
+- Backend API: <https://skinify-api.mchmdirvan.com>
 
 **Repositories:**
 
@@ -17,21 +21,19 @@
 
 **Inspiration:**
 
-- <https://exacoat.com>
+[Exacoat](https://exacoat.com)
+![Exacoat](public/exacoat.png)
 
 ## 🛠️ Architecture & Tech Stack
 
 ### Client | Presentation Layer (UI)
 
-- HTML
-- CSS
-  - Tailwind CSS
-  - shadcn/ui
-- JavaScript
+- React Router Frmamework V7
 - TypeScript
-- React
-- React Router
-- Docker
+- Tailwind CSS
+- Shadcn UI
+- React Hook Form
+- Zod
 
 ### Server | Application Layer (Business Logic)
 
@@ -54,12 +56,17 @@
 
 - **Home Page**
   - Hero section with featured products
-  - Product catalogue with search/filter
-  - Brand showcase
+  - Call-to-action buttons linking to brand-specific pages
+  - Product advantages highlighting key benefits
+  - Customer review section with ratings and testimonials
+- **Brand Pages**
+  - List of brands and links to their models
+- **Model Pages**
+  - List of models and links to their products
 - **Product Details**
   - High-quality product images
   - Product specifications (name, brand, price)
-  - Add to cart functionality with quantity selector
+  - Add to cart functionality
 - **Shopping Cart**
   - Item management (view, update quantity, remove)
   - Price calculations and totals
@@ -69,17 +76,9 @@
   - Grand total calculation
   - Order processing workflow
 
-## 🎨 UI Designs
-
-**Figma Design:**
-
-### Home Page
-
-<img alt="Home Page Design" src="./designs/home.jpg" width="400" />
-
 ## 📊 Database Schema
 
-![Entity Relationship Diagram](/assets/erd.png)
+![Entity Relationship Diagram](/public/erd.png)
 
 ## 🚀 API Documentation
 
@@ -88,13 +87,28 @@
 
 ### REST API Endpoints
 
-| Endpoint        | Method   | Description          |
-| --------------- | -------- | -------------------- |
-| `/products`     | `GET`    | Get all products     |
-| `/products/:id` | `GET`    | Get product by id    |
-| `/products`     | `POST`   | Create new product   |
-| `/products/:id` | `PUT`    | Update product by id |
-| `/products/:id` | `DELETE` | Delete product by id |
+Products:
+
+| Endpoint          | HTTP  | Description         |
+| ----------------- | ----- | ------------------- |
+| `/brands`         | `GET` | Get all brands      |
+| `/brands/:slug`   | `GET` | Get brand by slug   |
+| `/models`         | `GET` | Get all models      |
+| `/models/:slug`   | `GET` | Get model by slug   |
+| `/products`       | `GET` | Get all products    |
+| `/products/:slug` | `GET` | Get product by slug |
+
+Auth:
+
+| Endpoint         | HTTP   | Permission    |
+| ---------------- | ------ | ------------- |
+| `/users`         | `GET`  | Public        |
+| `/users/:id`     | `GET`  | Public        |
+| `/auth/register` | `POST` | Public        |
+| `/auth/login`    | `POST` | Public        |
+| `/auth/me`       | `GET`  | Authenticated |
+| `/cart`          | `GET`  | Authenticated |
+| `/cart/items`    | `POST` | Authenticated |
 
 ### Data Models
 
@@ -102,17 +116,16 @@
 
 ```json
 {
-  "id": "uuid",
-  "slug": "iphone-15-matte-black",
-  "name": "iPhone 15 Matte Black",
-  "sku": "SKINIFY-IP16P-MTBK-1",
-  "brand": "Apple",
-  "description": "Skin premium untuk iPhone 15 dengan finishing Matte Black yang elegan. Melindungi dari goresan tanpa menambah ketebalan.",
-  "imageUrl": "https://placehold.co/600x600/222/FFF/png?text=Matte+Black",
-  "price": 120000,
+  "id": "cmepf0pr7002kc6vk78gucth9",
+  "slug": "iphone-16-skins-patina",
+  "name": "iPhone 16 Skins - Patina",
+  "sku": "SKINIFY-IP16-PATINA",
+  "imageUrl": "https://ucarecdn.com/0889b6da-b6f5-4021-b040-f81bda338d88/4.png",
   "stockQuantity": 100,
-  "createdAt": "2023-10-01T12:00:00Z",
-  "updatedAt": "2023-10-01T12:00:00Z"
+  "price": 159000,
+  "modelSlug": "iphone-16",
+  "createdAt": "2025-08-24T08:17:24.835Z",
+  "updatedAt": "2025-08-24T08:17:24.835Z"
 }
 ```
 
@@ -120,30 +133,11 @@
 
 ```json
 {
-  "name": "iPhone 15 Matte Black",
-  "sku": "SKINIFY-IP16P-MTBK-1",
-  "brand": "Apple",
-  "description": "Skin premium untuk iPhone 15 dengan finishing Matte Black yang elegan. Melindungi dari goresan tanpa menambah ketebalan.",
-  "imageUrl": "https://placehold.co/600x600/222/FFF/png?text=Matte+Black",
-  "price": 120000,
-  "stockQuantity": 100
-}
-```
-
-**Create Product Response:**
-
-```json
-{
-  "id": "uuid",
-  "slug": "iphone-15-matte-black",
-  "name": "iPhone 15 Matte Black",
-  "sku": "SKINIFY-IP16P-MTBK-1",
-  "brand": "Apple",
-  "description": "Skin premium untuk iPhone 15 dengan finishing Matte Black yang elegan. Melindungi dari goresan tanpa menambah ketebalan.",
-  "imageUrl": "https://placehold.co/600x600/222/FFF/png?text=Matte+Black",
-  "price": 120000,
+  "name": "iPhone 16 Skins - Patina",
+  "sku": "SKINIFY-IP16-PATINA",
+  "imageUrl": "https://ucarecdn.com/0889b6da-b6f5-4021-b040-f81bda338d88/4.png",
   "stockQuantity": 100,
-  "createdAt": "2023-10-01T12:00:00Z",
-  "updatedAt": "2023-10-01T12:00:00Z"
+  "price": 159000,
+  "modelSlug": "iphone-16"
 }
 ```
