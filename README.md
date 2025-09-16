@@ -1,4 +1,4 @@
-# Skinify Web
+# Skinify
 
 ![header](public/header.png)
 
